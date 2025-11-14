@@ -1,5 +1,11 @@
 package taxipark;
 
+/**
+ * Абстрактний базовий клас, що описує легковий автомобіль таксопарку.
+ * Містить спільні для всіх авто характеристики:
+ * марка, модель, рік випуску, максимальна швидкість, витрата пального,
+ * ціна та наявність шкіряного салону.
+ */
 public abstract class Car {
     private final String brand;
     private final String model;
@@ -9,6 +15,9 @@ public abstract class Car {
     private final double price;
     private final boolean leatherInterior;
 
+    /**
+     * Створює новий екземпляр автомобіля.
+     */
     public Car(String brand, String model, int year, int maxSpeed, double fuelConsumption, double price,
                boolean leatherInterior) {
         if (brand == null || brand.isBlank())
@@ -33,24 +42,45 @@ public abstract class Car {
         this.leatherInterior = leatherInterior;
     }
 
+    /**
+     * Повертає марку автомобіля.
+     */
     public String getBrand() {
         return brand;
     }
+    /**
+     * Повертає модель автомобіля.
+     */
     public String getModel() {
         return model;
     }
+    /**
+     * Повертає рік випуску автомобіля.
+     */
     public int getYear() {
         return year;
     }
+    /**
+     * Повертає максимальну швидкість автомобіля.
+     */
     public int getMaxSpeed() {
         return maxSpeed;
     }
+    /**
+     * Повертає витрату пального автомобіля.
+     */
     public double getFuelConsumption() {
         return fuelConsumption;
     }
+    /**
+     * Повертає вартість автомобіля.
+     */
     public double getPrice() {
         return price;
     }
+    /**
+     * Повертає, чи має автомобіль шкіряний салон.
+     */
     public boolean hasLeatherInterior() {
         return leatherInterior;
     }

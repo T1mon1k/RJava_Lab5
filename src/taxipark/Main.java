@@ -1,6 +1,15 @@
 package taxipark;
 
+/**
+ * Точка входу в програму.
+ * Демонструє роботу з ієрархією легкових автомобілів:
+ * створення таксопарку, підрахунок вартості, сортування за витратою пального
+ * та пошук автомобілів у заданому діапазоні швидкості.
+ */
 public class Main {
+    /**
+     * Головний метод програми.
+     */
     public static void main(String[] args) {
         try {
             Car[] carPark = {
@@ -15,21 +24,16 @@ public class Main {
                     new BusinessCar("Volkswagen", "Passat B8", 2019, 220, 6.0, 24500, true),
                     new PremiumCar("Mercedes-Benz", "S450", 2019, 250, 8.5, 78000, true)
             };
-
             TaxiPark park = new TaxiPark(carPark);
-
             System.out.println("---------------------------------   Початковий склад автопарку" +
                     "   --------------------------------");
             park.printTable();
-
             System.out.println("\n---------------------------   Загальна вартість автопарку: " + park.getTotalPrice() +
                     "$   --------------------------");
-
             park.sortByFuelConsumption();
             System.out.println("\n-----------------------------   Відсортовано за витратами пального" +
                     "   ----------------------------");
             park.printTable();
-
             System.out.println("\n------------------------   Авто зі швидкістю у діапазоні 180–230 км/год" +
                     "   -----------------------");
             Car[] found = park.findBySpeedRange(215, 230);
@@ -39,7 +43,6 @@ public class Main {
                 TaxiPark foundPark = new TaxiPark(found);
                 foundPark.printTable();
             }
-
         } catch (Exception ex) {
             System.err.println("Помилка: " + ex.getMessage());
         }
